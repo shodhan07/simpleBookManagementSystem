@@ -19,6 +19,9 @@ public:
 
     bool addBook(const Book &book);
     Book *searchBook(int id);
+    void displayExpensiveBooks(int minPrice);
+
 
     void displayAll() const;
+  
 };

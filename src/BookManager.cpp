@@ -75,3 +75,21 @@ void BookManager::displayAll() const
         books[i].display();
     }
 }
+
+void BookManager::displayExpensiveBooks(int minPrice)
+{
+    bool found = false;
+    for (const auto &b : books)
+    {
+        if (b.getPrice() >= minPrice)
+        {
+            b.display();
+            std::cout << "-----------------\n";
+            found = true;
+        }
+    }
+    if (!found)
+    {
+        std::cout << "No books found with price >= " << minPrice << "\n";
+    }
+}

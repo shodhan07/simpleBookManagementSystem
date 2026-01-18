@@ -13,13 +13,14 @@ int main()
         std::cout << "1. Add Book\n";
         std::cout << "2. View All Books\n";
         std::cout << "3. Search Book\n";
+        std::cout << "4. display Expensive Books\n";
         std::cout << "0. Exit\n";
         std::cout << "Choice: ";
         std::cin >> choice;
 
         if (choice == 1)
         {
-            int id;
+            int id, price;
             std::string title, author;
 
             std::cout << "Enter book ID: ";
@@ -32,7 +33,10 @@ int main()
             std::cout << "Enter author: ";
             std::getline(std::cin, author);
 
-            Book b(id, title, author);
+            std::cout << "Enter book Price: ";
+            std::cin >> price;
+
+            Book b(id, title, author, price);
             if (manager.addBook(b))
             {
                 manager.saveToFile();
@@ -58,6 +62,13 @@ int main()
             {
                 std::cout << "Book not found.\n";
             }
+        }
+        else if (choice == 4)
+        {
+            int minPrice;
+            std::cout<<"Enter minimum price: ";
+            std::cin>>minPrice;
+            manager.displayExpensiveBooks(minPrice);
         }
 
     } while (choice != 0);

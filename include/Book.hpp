@@ -7,14 +7,16 @@ private:
     int id;
     std::string title;
     std::string author;
+    int price;
 
 public:
     Book();
-    Book(int id, const std::string &title, const std::string &author);
+    Book(int id, const std::string &title, const std::string &author, int price);
 
     int getId() const;
     std::string getTitle() const;
     std::string getAuthor() const;
+    int getPrice() const;
 
     void display() const;
 
